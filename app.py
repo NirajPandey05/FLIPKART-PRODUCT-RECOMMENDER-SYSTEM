@@ -11,7 +11,7 @@ REQUEST_COUNT = Counter("http_requests_total", "Total HTTP Requests")
 def create_app():
     app = Flask(__name__)
 
-    vector_store = DataIngestor().ingest() #load_existing_data=True
+    vector_store = DataIngestor().ingest(True) #load_existing_data=True
     # Initialize Data Ingestion and RAG Chain Builder
 
     rag_chain = RAGChainBuilder(vector_store).build_chain()
